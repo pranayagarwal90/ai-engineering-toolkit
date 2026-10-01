@@ -7,7 +7,7 @@ errors = []
 skills = list(root.glob(".agents/skills/*/SKILL.md"))
 agents = list(root.glob(".github/agents/*.agent.md"))
 prompts = list(root.glob(".github/prompts/*.prompt.md"))
-for collection, count, label in ((skills, 8, "skills"), (agents, 4, "profiles"), (prompts, 9, "prompts")):
+for collection, count, label in ((skills, 9, "skills"), (agents, 5, "profiles"), (prompts, 11, "prompts")):
     if len(collection) != count:
         errors.append(f"{label}: expected {count}, found {len(collection)}")
 for path in skills + agents + prompts:
