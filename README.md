@@ -38,6 +38,8 @@ Four specialist profiles, eight skills and nine prompts. Browse the [workflow ma
 
 [Upgrade assessment](examples/upgrade-assessment.md) and [code review](examples/code-review.md) are illustrative walkthroughs, not transcripts of measured production outcomes.
 
+For a concrete problem and reusable investigation prompt, see [Fixing an edit form that crashes on a missing answer ID](examples/missing-answer-id.md). This worked example includes synthetic evidence, a conditional fix and a verification plan.
+
 Run python3 scripts/validate_toolkit.py to check metadata, internal links and expected file counts. CI runs the same structural check. This does not evaluate model accuracy or prove workflows succeed in a live Drupal application.
 
 ## Contribute
