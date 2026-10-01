@@ -2,7 +2,7 @@
 
 Reusable agents, skills and prompts for AI-assisted development, maintenance and troubleshooting.
 
-The initial collection focuses on Drupal. Future collections can cover homelab operations, DevOps, Python and other engineering use cases.
+The toolkit includes Drupal workflows and language-independent SonarQube analysis. Future collections can cover homelab operations, DevOps, Python and other engineering use cases.
 
 Created by Pranay Agarwal from workflows developed for a personal Drupal homelab/portfolio project. This public edition removes application-specific details and adds review and module-development procedures.
 
@@ -15,7 +15,7 @@ Created by Pranay Agarwal from workflows developed for a personal Drupal homelab
 
 ## Initial collection: Drupal
 
-Four specialist profiles, eight skills and nine prompts. Browse the [workflow map](.github/AI-WORKFLOWS.md).
+Five specialist profiles, nine skills and eleven prompts across the toolkit. Browse the [workflow map](.github/AI-WORKFLOWS.md).
 
 | Profiles | Skills |
 | --- | --- |
@@ -24,6 +24,12 @@ Four specialist profiles, eight skills and nine prompts. Browse the [workflow ma
 | Incident Debugger | Log analysis, outage investigation |
 | Drupal Code Reviewer | PR review |
 | Shared development guidance | Custom module development |
+
+## Code quality: SonarQube
+
+Use the Code Quality Analyst with the [SonarQube analysis skill](.agents/skills/sonarqube-analysis/SKILL.md), [report analysis prompt](.github/prompts/analyze-sonarqube-report.prompt.md) or [selected-fixes prompt](.github/prompts/fix-sonarqube-findings.prompt.md). Start with supplied reports and relevant source; this toolkit does not install a scanner or connect to a server.
+
+See the [worked quality-gate example](examples/sonarqube-quality-gate.md) for separating a code defect, coverage evidence and hotspot review.
 
 ## Quick start
 
