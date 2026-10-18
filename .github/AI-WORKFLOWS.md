@@ -7,6 +7,7 @@ Select one row. Read root guidance, relevant architecture and the selected skill
 | [Assess Drupal upgrade](prompts/assess-drupal-upgrade.prompt.md) | [drupal-maintenance](agents/drupal-maintenance.agent.md) | [drupal-upgrade-assessment](../.agents/skills/drupal-upgrade-assessment/SKILL.md) |
 | [Update Drupal core](prompts/update-drupal-core.prompt.md) | [drupal-maintenance](agents/drupal-maintenance.agent.md) | [drupal-core-update](../.agents/skills/drupal-core-update/SKILL.md) |
 | [Update contributed package](prompts/update-drupal-contrib.prompt.md) | [drupal-maintenance](agents/drupal-maintenance.agent.md) | [drupal-contrib-update](../.agents/skills/drupal-contrib-update/SKILL.md) |
+| [Investigate configuration drift](prompts/investigate-config-drift.prompt.md) | [drupal-maintenance](agents/drupal-maintenance.agent.md) | [drupal-config-drift](../.agents/skills/drupal-config-drift/SKILL.md) |
 | [Assess or apply security update](prompts/apply-drupal-security-update.prompt.md) | [security-reviewer](agents/security-reviewer.agent.md) | [drupal-security-update](../.agents/skills/drupal-security-update/SKILL.md) |
 | [Analyze Drupal logs](prompts/analyze-drupal-logs.prompt.md) | [incident-debugger](agents/incident-debugger.agent.md) | [drupal-log-analysis](../.agents/skills/drupal-log-analysis/SKILL.md) |
 | [Investigate application error](prompts/investigate-application-error.prompt.md) | [incident-debugger](agents/incident-debugger.agent.md) | [drupal-log-analysis](../.agents/skills/drupal-log-analysis/SKILL.md) |

@@ -5,9 +5,25 @@ description: Design and implement a requested Drupal custom module or feature us
 
 # Develop a custom Drupal module
 
-1. Read root guidance, project architecture and related implementation. Establish the requested behavior, acceptance criteria, Drupal/PHP versions, document root and enabled dependencies. Ask only for decisions that materially block implementation.
-2. Reuse an existing module when appropriate. Choose services, routes/forms, plugins, configuration or entities based on behavior, not a fixed skeleton. Explain significant dependencies and tradeoffs.
-3. Plan access, validation, translation, cacheability and configuration lifecycle. Keep secrets outside exported configuration. Decide how an existing installation receives changes; install defaults alone do not update it.
-4. Implement the smallest complete feature within the user's scope. Use dependency injection and Drupal APIs. Include permissions, schema and libraries only where required. Preserve unrelated work.
-5. Select meaningful existing checks and add regression tests only for behavior that warrants them. Verify denied-access and invalid-input paths alongside the successful path where relevant. Run database/config operations only on the intended authorized environment.
-6. Report changed behavior, file responsibilities, checks actually run, setup/update steps and limitations. Do not deploy, publish or claim production validation without evidence and scope.
+Follow [root guidance](../../../AGENTS.md) and the project architecture.
+
+**Scope:** implement within the user's request. Do not deploy, publish or claim production validation without evidence and scope.
+
+## Inputs
+
+- Requirement and acceptance criteria, target project, Drupal/PHP versions, document root, enabled dependencies, authorized environment.
+
+## Steps
+
+1. **Understand the context.** Read related implementation; ask only for decisions that materially block implementation.
+2. **Choose the design.** Reuse an existing module when appropriate. Pick services, routes/forms, plugins, configuration or entities by behavior, not a fixed skeleton; explain significant dependencies and tradeoffs.
+3. **Plan the lifecycle.**
+   - Access, validation, translation and cacheability.
+   - Secrets and environment-specific values (IDs, hosts, keys) stay out of exported configuration; apply them with `settings.php` overrides so a config import cannot remove them.
+   - How existing installations receive changes: install defaults alone do not update them. An update hook that changes exported config must ship with the matching `config/sync` export in the same commit, and `config:status` must be clean afterwards.
+4. **Implement the smallest complete feature.** Dependency injection and Drupal APIs; permissions, schema and libraries only where required. Preserve unrelated work.
+5. **Verify.** Choose meaningful existing checks; add regression tests where the behavior warrants them. Cover denied-access and invalid-input paths alongside the successful one. Run database/config operations only on the intended environment.
+
+## Output
+
+Changed behavior, file responsibilities, checks actually run, setup/update steps (including config export/import) and limitations.

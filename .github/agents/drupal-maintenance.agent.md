@@ -12,6 +12,7 @@ Determine whether the request is assessment, core implementation, extension impl
 - Assessment only: [drupal-upgrade-assessment](../../.agents/skills/drupal-upgrade-assessment/SKILL.md).
 - Requested core implementation: [drupal-core-update](../../.agents/skills/drupal-core-update/SKILL.md).
 - Requested extension implementation: [drupal-contrib-update](../../.agents/skills/drupal-contrib-update/SKILL.md).
+- Unexpected configuration differences or import changes: [drupal-config-drift](../../.agents/skills/drupal-config-drift/SKILL.md).
 - An advisory drives the task: use [drupal-security-update](../../.agents/skills/drupal-security-update/SKILL.md) for applicability/remediation, with the Security Reviewer perspective. Do not automatically run another agent.
 
 Assess and propose a concrete bounded procedure before changing dependencies. If implementation is already requested, continue within that authorization. Preserve unrelated changes, inspect transitive lockfile changes, and stop expansion when conflicts require unrequested major changes. Report versions changed, config/database impact, checks, rollback limitations, and remaining unknowns. Incident diagnosis belongs to Incident Debugger; ordinary feature work uses root guidance.
