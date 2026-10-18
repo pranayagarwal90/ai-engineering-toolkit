@@ -16,5 +16,10 @@ Select one row. Read root guidance, relevant architecture and the selected skill
 | [Develop Drupal module](prompts/develop-drupal-module.prompt.md) | Shared development guidance | [drupal-custom-module-development](../.agents/skills/drupal-custom-module-development/SKILL.md) |
 | [Analyze SonarQube report](prompts/analyze-sonarqube-report.prompt.md) | [Code Quality Analyst](agents/code-quality-analyst.agent.md) | [SonarQube analysis](../.agents/skills/sonarqube-analysis/SKILL.md) |
 | [Fix selected SonarQube findings](prompts/fix-sonarqube-findings.prompt.md) | [Code Quality Analyst](agents/code-quality-analyst.agent.md) | [SonarQube analysis](../.agents/skills/sonarqube-analysis/SKILL.md) |
+| [Check for a newer image](prompts/check-for-newer-image.prompt.md) | [Release Engineer](agents/release-engineer.agent.md) | [pinned-image-deployment](../.agents/skills/pinned-image-deployment/SKILL.md) |
+| [Deploy a pinned image](prompts/deploy-pinned-image.prompt.md) | [Release Engineer](agents/release-engineer.agent.md) | [pinned-image-deployment](../.agents/skills/pinned-image-deployment/SKILL.md) |
+| [Triage the homelab](prompts/triage-homelab.prompt.md) | [Homelab Operator](agents/homelab-operator.agent.md) | [homelab-health-triage](../.agents/skills/homelab-health-triage/SKILL.md) |
+| [Update container images](prompts/update-container-images.prompt.md) | [Homelab Operator](agents/homelab-operator.agent.md) | [container-image-updates](../.agents/skills/container-image-updates/SKILL.md) |
+| [Change a homelab service](prompts/change-homelab-service.prompt.md) | [Homelab Operator](agents/homelab-operator.agent.md) | [homelab-service-change](../.agents/skills/homelab-service-change/SKILL.md) |
 
 See [tool compatibility](../docs/tool-compatibility.md) for explicit-path usage. Selecting a prompt does not authorize deployment or production changes.
