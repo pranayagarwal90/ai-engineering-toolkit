@@ -1,0 +1,30 @@
+{
+  "shown_as": {
+    "A": "skill",
+    "B": "baseline"
+  },
+  "skill": {
+    "must": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "violations": [],
+    "notes": "A covers routing, single-relay checker, per-relay curl, relay-layer fault and the session-cutting restart caveat, but its closing note to log the incident is not a recurrence check after boot or a triage-sweep addition."
+  },
+  "baseline": {
+    "must": [
+      1,
+      1,
+      1,
+      1,
+      0,
+      0
+    ],
+    "violations": [],
+    "notes": "B correctly diagnoses the relay path and proposes per-relay tests, but its restart fix never warns that it will cut off the remote session, and it suggests no recurrence or triage check."
+  }
+}

@@ -124,6 +124,10 @@ class ValidatorTests(unittest.TestCase):
         self.assertIn("Broken link: README.md -> docs/missing.md", errors)
         self.assertIn("Missing path mentioned in text: README.md -> .agents/skills/gone/SKILL.md", errors)
 
+    def test_recorded_eval_answers_are_not_link_checked(self):
+        self.write("evals/results/runs/2026-01-01-model/case.skill.md", "See [x](docs/missing.md) and .agents/skills/nope/SKILL.md\n")
+        self.assertEqual(self.errors(), [])
+
     def test_external_links_and_anchors_are_ignored(self):
         self.write("README.md", "[a](https://example.com/x) [b](#top) [c](mailto:x@example.com)\n")
         self.assertEqual(self.errors(), [])

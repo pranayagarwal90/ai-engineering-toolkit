@@ -1,0 +1,34 @@
+{
+  "shown_as": {
+    "A": "skill",
+    "B": "baseline"
+  },
+  "skill": {
+    "must": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "violations": [],
+    "notes": "A covers every item: the override, read-only effective-value checks, the hook appending visitor_condition, a reorder showing as Update with equal values, the import being safe, and both prevention steps, without risky commands."
+  },
+  "baseline": {
+    "must": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0
+    ],
+    "violations": [],
+    "notes": "B explains the override, the effective-value checks and the hook drift, and offers key order as one hedged possibility, but never concludes that the import only restored the exported order with no change needed, and suggests a post-deploy rather than pre-import config:status log."
+  }
+}

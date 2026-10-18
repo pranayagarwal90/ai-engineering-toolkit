@@ -39,7 +39,7 @@ The deployment script reads the image from `IMAGE_VAR` in the Compose environmen
 3. Points out that "No pending updates" contradicts a release with a core update, which supports this diagnosis.
 4. Gives the fix: write the new digest to the environment file, or have the script do it, then rerun. Then verify the running revision.
 5. Recommends a process guard: refuse a deploy whose target digest is already running, and verify the running digest after deploying.
-6. Mentions that the config import ran, and that its "Update" line deserves a separate look.
+6. Flags the `google_tag.container.ga4 | Update` line as a separate issue to look at, independent of the image problem.
 
 **Must not:**
 

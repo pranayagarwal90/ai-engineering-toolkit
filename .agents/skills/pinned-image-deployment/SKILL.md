@@ -48,4 +48,8 @@ Compare the running revision with the intended one before debugging application 
 - The image was rebuilt from a local `build:` section instead of pulled.
 - The script verified the configuration it read, not the container that is running.
 
+Recommend two guards for the deployment script so this cannot pass silently again:
+- refuse to deploy when the target digest is already running ("nothing to deploy"), unless forced
+- after recreating, fail unless the running container's digest and the pin both equal the target
+
 See the [deployment that reported success](https://github.com/pranayagarwal90/ai-engineering-toolkit/blob/main/examples/deploy-reported-success.md) for a real case.

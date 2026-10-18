@@ -4,6 +4,6 @@ Released: 0.1.0 (Drupal collection: four profiles, eight skills, nine prompts an
 
 0.3.0: Deployment and Homelab operations collections, the config-drift workflow, the first three sanitized real-use walkthroughs and five behavior evaluation cases.
 
-Next: run the evaluation cases across clients and record baseline-versus-skill results; add cases for the remaining skills; more real-use walkthroughs; consider accessibility review and backup/restore verification after concrete use cases emerge. Contributions should improve evidence quality and usefulness rather than duplicate roles.
+Next: repeat the evaluation runs (several per case, other models and clients, an independent grader); add cases for the remaining skills; more real-use walkthroughs; consider accessibility review and backup/restore verification after concrete use cases emerge. Contributions should improve evidence quality and usefulness rather than duplicate roles.
 
 Future collections: DevOps (CI/CD) and Python workflows, added when supported by concrete use cases. Preserve client-compatible locations and namespace domain-specific skills.
