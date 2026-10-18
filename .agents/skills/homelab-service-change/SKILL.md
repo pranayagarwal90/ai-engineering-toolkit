@@ -5,7 +5,7 @@ description: Add, remove, rename, re-port or re-domain a self-hosted service whi
 
 # Change a homelab service
 
-Follow [root guidance](../../../AGENTS.md) and the project's [infrastructure](../../../architecture/infrastructure.md) page, which lists where service facts are repeated.
+Follow [shared rules](../../RULES.md) and the project's [infrastructure](../../project/infrastructure.md) page, which lists where service facts are repeated.
 
 **Scope:** editing files in the repository is local work. Applying the change (recreating services, forwarding ports, reloading the proxy, editing runtime dashboards or monitors) affects running systems; ask first, and hand elevated steps to the user as exact commands.
 

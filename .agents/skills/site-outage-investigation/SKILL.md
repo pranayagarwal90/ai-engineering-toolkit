@@ -5,7 +5,7 @@ description: Diagnose site unavailability across relevant request, infrastructur
 
 # Investigate site availability
 
-Follow [root guidance](../../../AGENTS.md), the [architecture map](../../../architecture/README.md) and [operations](../../../architecture/operations.md).
+Follow [shared rules](../../RULES.md), the [project map](../../project/README.md) and [operations](../../project/operations.md).
 
 **Scope:** a request to investigate is read-only. Do not restart services, flush Redis/cache, change DNS, deploy, import config, restore databases or disable security as automatic diagnosis.
 

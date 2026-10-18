@@ -5,7 +5,7 @@ description: Update an explicitly requested Drupal contributed module or theme t
 
 # Update a contributed package
 
-Follow [root guidance](../../../AGENTS.md) and the [architecture map](../../../architecture/README.md). Commands and environment selection come from [maintenance](../../../architecture/maintenance.md).
+Follow [shared rules](../../RULES.md) and the [project map](../../project/README.md). Commands and environment selection come from [maintenance](../../project/maintenance.md).
 
 **Scope:** without an implementation request, run [upgrade assessment](../drupal-upgrade-assessment/SKILL.md) only, and reuse an assessment already completed for this target. Deploying or changing production is separate from the local package update.
 

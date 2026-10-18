@@ -5,7 +5,7 @@ description: Assess a proposed Drupal core or contrib upgrade before implementat
 
 # Assess a Drupal upgrade
 
-Follow [root guidance](../../../AGENTS.md) and select relevant pages through the [architecture map](../../../architecture/README.md). Use [maintenance command evidence](../../../architecture/maintenance.md); do not load unrelated skills.
+Follow [shared rules](../../RULES.md) and select relevant pages through the [project map](../../project/README.md). Use [maintenance command evidence](../../project/maintenance.md); do not load unrelated skills.
 
 **Scope:** read-only for application code, dependencies, configuration and database state. Do not interpret "assess", "can we upgrade" or selecting an agent as permission to update. If implementation is explicitly requested, finish this assessment and continue with the matching update skill.
 

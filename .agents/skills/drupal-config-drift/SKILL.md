@@ -5,7 +5,7 @@ description: Investigate unexpected Drupal configuration differences, such as co
 
 # Investigate configuration drift
 
-Follow [root guidance](../../../AGENTS.md) and the [architecture map](../../../architecture/README.md). Use [maintenance](../../../architecture/maintenance.md) for the project's Drush command prefix.
+Follow [shared rules](../../RULES.md) and the [project map](../../project/README.md). Use [maintenance](../../project/maintenance.md) for the project's Drush command prefix.
 
 **Scope:** read-only until a direction is agreed. Do not run `config:import`, `config:export`, `config:set` or a UI save on any environment without explicit scope, and never on production as a diagnostic step. Configuration can hold secrets: redact values such as keys and tokens in anything you report.
 
@@ -44,4 +44,4 @@ Follow [root guidance](../../../AGENTS.md) and the [architecture map](../../../a
 
 A table per item: name, stored vs effective vs sync summary (redacted), classification, writer (evidence or "unknown"), recommended direction and risk. Then the prevention steps, and the exact commands that were run (read-only) versus proposed.
 
-See the [unexpected config import example](../../../examples/unexpected-config-import.md) for a real case.
+See the [unexpected config import example](https://github.com/pranayagarwal90/ai-engineering-toolkit/blob/main/examples/unexpected-config-import.md) for a real case.

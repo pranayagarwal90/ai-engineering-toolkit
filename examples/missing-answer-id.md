@@ -38,7 +38,7 @@ Use the [Incident Debugger profile](../.github/agents/incident-debugger.agent.md
 
 Copy this request into your coding assistant and supply redacted logs and the relevant widget source:
 
-> Read AGENTS.md and .agents/skills/drupal-log-analysis/SKILL.md.
+> Read .agents/RULES.md and .agents/skills/drupal-log-analysis/SKILL.md.
 > Investigate an HTTP 500 when editing a question. The error reports a null
 > answer ID passed to a typed helper in a custom field widget. Public viewing
 > still works. Inspect the affected widget, field definition, stored-item

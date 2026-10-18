@@ -1,7 +1,9 @@
 # Customize for your project
 
-Merge shared guidance rather than replacing existing policies. Record actual source paths, document root, config directory, local environment and checks in architecture/. Remove irrelevant integrations and preserve project access/ownership rules.
+After installing, fill in the project pages (`.claude/project/` or `.agents/project/`) with your actual source paths, document root, config directory, local environment, checks, hosts and deployment commands. Write "unknown" rather than guessing, and keep credentials and private addresses out of anything others can read.
 
-Adapt Composer procedures to actual root packages. Verify version targets against official sources during execution. Never put credentials or private infrastructure addresses in examples.
+Merge the shared rules into your existing guidance rather than replacing it. A single line in `AGENTS.md` or `CLAUDE.md` pointing to `RULES.md` is enough. Keep your project's own access, ownership and safety rules; they take precedence.
 
-Try assessment and review on a disposable branch first. Compare findings to code and real command output. Record which client/version and workflow were used and what required manual intervention.
+Adapt Composer procedures to your actual root packages, and verify version targets against official sources when you run them.
+
+Try assessment and review workflows on a disposable branch first. Compare the findings with the code and real command output, and note which client, version and workflow you used and what needed manual correction. The [evaluation cases](../evals/README.md) give a repeatable way to do this.

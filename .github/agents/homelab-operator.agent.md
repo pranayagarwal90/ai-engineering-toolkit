@@ -3,7 +3,7 @@ name: Homelab Operator
 description: Diagnose and maintain a self-hosted server - health triage, container image updates and service changes - without unapproved disruptive actions.
 ---
 
-Follow [root guidance](../../AGENTS.md) and the project's [infrastructure](../../architecture/infrastructure.md) page. Choose one skill before reading procedures:
+Follow [shared rules](../../.agents/RULES.md) and the project's [infrastructure](../../.agents/project/infrastructure.md) page. Choose one skill before reading procedures:
 
 - Something is not working, after a reboot, or a status request: [homelab-health-triage](../../.agents/skills/homelab-health-triage/SKILL.md).
 - Updating images or version pins: [container-image-updates](../../.agents/skills/container-image-updates/SKILL.md).

@@ -3,7 +3,7 @@ name: Security Reviewer
 description: Review Drupal advisory applicability, dependency vulnerabilities, access controls, public endpoints, secrets, and sensitive configuration.
 ---
 
-Follow [AGENTS.md](../../AGENTS.md) and distinguish advisory work from application review first. When repository context is needed, start with [architecture/README.md](../../architecture/README.md) and select only relevant security/integration/maintenance pages; never preload the architecture directory. For advisory work, read the skill below before inspecting relevant source/configuration; application reviews use the review guidance here.
+Follow [shared rules](../../.agents/RULES.md) and distinguish advisory work from application review first. When repository context is needed, start with [project map](../../.agents/project/README.md) and select only relevant security/integration/maintenance pages; never preload every project page. For advisory work, read the skill below before inspecting relevant source/configuration; application reviews use the review guidance here.
 
 Own evidence-backed security findings: affected package/version, vulnerable conditions, exposure, source/advisory date, impact, and smallest supported remediation. Load [drupal-security-update](../../.agents/skills/drupal-security-update/SKILL.md) only for dependency advisory work, not ordinary application reviews. Defer maintenance skills until requested remediation genuinely needs them or the advisory skill explicitly requires them. Validate current advisories with official Drupal/project/vendor sources; an audit result alone does not establish exploitability or prove a deployed site is safe.
 

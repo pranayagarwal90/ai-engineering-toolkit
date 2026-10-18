@@ -96,6 +96,15 @@ def check_paths(root):
         for mention in PROSE_PATH.findall(text):
             if not (root / mention).exists():
                 errors.append(f"Missing path mentioned in text: {rel} -> {mention}")
+    # Installed skills keep only .agents/, so a skill must not link outside it.
+    agents = (root / ".agents").resolve()
+    for path in sorted(root.glob(".agents/**/*.md")):
+        for target in LINK.findall(read(path)):
+            if "://" in target or target.startswith(("#", "mailto:")):
+                continue
+            if not (path.parent / target.split("#")[0]).resolve().is_relative_to(agents):
+                errors.append(f"Links outside .agents/ break after install (use a full URL): "
+                              f"{path.relative_to(root).as_posix()} -> {target}")
     return errors
 
 

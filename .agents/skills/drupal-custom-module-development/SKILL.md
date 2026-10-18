@@ -5,7 +5,7 @@ description: Design and implement a requested Drupal custom module or feature us
 
 # Develop a custom Drupal module
 
-Follow [root guidance](../../../AGENTS.md) and the project architecture.
+Follow [shared rules](../../RULES.md) and the [project map](../../project/README.md), especially [development](../../project/development.md).
 
 **Scope:** implement within the user's request. Do not deploy, publish or claim production validation without evidence and scope.
 
