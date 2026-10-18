@@ -62,6 +62,10 @@ For a concrete problem and reusable investigation prompt, see [Fixing an edit fo
 
 Run python3 scripts/validate_toolkit.py to check metadata, that every skill, profile and prompt is routed from the workflow map, internal links and repository paths quoted in prose. python3 -m unittest discover -s tests tests the validator itself. CI runs both. This does not evaluate model accuracy or prove workflows succeed in a live application.
 
+## Behavior evaluation
+
+[evals/](evals/README.md) holds fixed tasks with supplied evidence and Must/Must-not rubrics. Most come from the real incidents above. Run each case with and without its skill, then record the scores to see whether the skill changes what an assistant does. No results are recorded yet; the validator checks only that each case is well-formed.
+
 ## Contribute
 
 See [CONTRIBUTING.md](CONTRIBUTING.md), [roadmap](docs/roadmap.md) and [changelog](CHANGELOG.md). Share sanitized evidence and distinguish illustrative results from real executions.

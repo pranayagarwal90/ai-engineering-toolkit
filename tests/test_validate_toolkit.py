@@ -15,6 +15,35 @@ WORKFLOW_MAP = ("| Task | Profile | Skill |\n| --- | --- | --- |\n"
                 "| [demo](../.agents/skills/demo/SKILL.md) |\n")
 
 
+EVAL = """---
+id: demo-case
+skill: .agents/skills/demo/SKILL.md
+pass: 2
+---
+
+# Demo
+
+## Task
+
+Do the thing.
+
+## Evidence
+
+Some logs.
+
+## Rubric
+
+**Must** (1 point each):
+
+1. Finds the cause.
+2. Proposes a check.
+
+**Must not:**
+
+- Restart anything.
+"""
+
+
 class ValidatorTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
@@ -38,7 +67,31 @@ class ValidatorTests(unittest.TestCase):
     def test_valid_fixture_passes_and_counts_files(self):
         errors, counts = vt.validate(self.root)
         self.assertEqual(errors, [])
-        self.assertEqual(counts, {"skills": 1, "profiles": 1, "prompts": 1})
+        self.assertEqual(counts, {"skills": 1, "profiles": 1, "prompts": 1, "evals": 0})
+
+    def test_valid_eval_case_passes(self):
+        self.write("evals/cases/demo-case.md", EVAL)
+        errors, counts = vt.validate(self.root)
+        self.assertEqual(errors, [])
+        self.assertEqual(counts["evals"], 1)
+
+    def test_eval_case_problems_are_reported(self):
+        broken = (EVAL.replace("id: demo-case", "id: other")
+                  .replace(".agents/skills/demo/", ".agents/skills/gone/")
+                  .replace("pass: 2", "pass: 3")
+                  .replace("## Evidence\n", ""))
+        self.write("evals/cases/demo-case.md", broken)
+        errors = self.errors()
+        rel = "evals/cases/demo-case.md"
+        self.assertIn(f"Eval id must equal the file name: {rel}", errors)
+        self.assertIn(f"Eval must name an existing skill (.agents/skills/<name>/SKILL.md): {rel}", errors)
+        self.assertIn(f"Eval is missing '## Evidence': {rel}", errors)
+        self.assertIn(f"Eval pass mark must be between 1 and its 2 Must items: {rel}", errors)
+
+    def test_eval_case_needs_must_not_items(self):
+        self.write("evals/cases/demo-case.md", EVAL.split("**Must not:**")[0])
+        self.assertIn("Eval rubric needs numbered Must items and '**Must not:**' bullets: evals/cases/demo-case.md",
+                      self.errors())
 
     def test_new_routed_files_need_no_validator_change(self):
         self.write(".agents/skills/second/SKILL.md", SKILL.format(name="second"))
