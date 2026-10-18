@@ -7,6 +7,7 @@ Select one row. Read root guidance, relevant architecture and the selected skill
 | [Assess Drupal upgrade](prompts/assess-drupal-upgrade.prompt.md) | [drupal-maintenance](agents/drupal-maintenance.agent.md) | [drupal-upgrade-assessment](../.agents/skills/drupal-upgrade-assessment/SKILL.md) |
 | [Update Drupal core](prompts/update-drupal-core.prompt.md) | [drupal-maintenance](agents/drupal-maintenance.agent.md) | [drupal-core-update](../.agents/skills/drupal-core-update/SKILL.md) |
 | [Update contributed package](prompts/update-drupal-contrib.prompt.md) | [drupal-maintenance](agents/drupal-maintenance.agent.md) | [drupal-contrib-update](../.agents/skills/drupal-contrib-update/SKILL.md) |
+| [Investigate configuration drift](prompts/investigate-config-drift.prompt.md) | [drupal-maintenance](agents/drupal-maintenance.agent.md) | [drupal-config-drift](../.agents/skills/drupal-config-drift/SKILL.md) |
 | [Assess or apply security update](prompts/apply-drupal-security-update.prompt.md) | [security-reviewer](agents/security-reviewer.agent.md) | [drupal-security-update](../.agents/skills/drupal-security-update/SKILL.md) |
 | [Analyze Drupal logs](prompts/analyze-drupal-logs.prompt.md) | [incident-debugger](agents/incident-debugger.agent.md) | [drupal-log-analysis](../.agents/skills/drupal-log-analysis/SKILL.md) |
 | [Investigate application error](prompts/investigate-application-error.prompt.md) | [incident-debugger](agents/incident-debugger.agent.md) | [drupal-log-analysis](../.agents/skills/drupal-log-analysis/SKILL.md) |
@@ -15,5 +16,10 @@ Select one row. Read root guidance, relevant architecture and the selected skill
 | [Develop Drupal module](prompts/develop-drupal-module.prompt.md) | Shared development guidance | [drupal-custom-module-development](../.agents/skills/drupal-custom-module-development/SKILL.md) |
 | [Analyze SonarQube report](prompts/analyze-sonarqube-report.prompt.md) | [Code Quality Analyst](agents/code-quality-analyst.agent.md) | [SonarQube analysis](../.agents/skills/sonarqube-analysis/SKILL.md) |
 | [Fix selected SonarQube findings](prompts/fix-sonarqube-findings.prompt.md) | [Code Quality Analyst](agents/code-quality-analyst.agent.md) | [SonarQube analysis](../.agents/skills/sonarqube-analysis/SKILL.md) |
+| [Check for a newer image](prompts/check-for-newer-image.prompt.md) | [Release Engineer](agents/release-engineer.agent.md) | [pinned-image-deployment](../.agents/skills/pinned-image-deployment/SKILL.md) |
+| [Deploy a pinned image](prompts/deploy-pinned-image.prompt.md) | [Release Engineer](agents/release-engineer.agent.md) | [pinned-image-deployment](../.agents/skills/pinned-image-deployment/SKILL.md) |
+| [Triage the homelab](prompts/triage-homelab.prompt.md) | [Homelab Operator](agents/homelab-operator.agent.md) | [homelab-health-triage](../.agents/skills/homelab-health-triage/SKILL.md) |
+| [Update container images](prompts/update-container-images.prompt.md) | [Homelab Operator](agents/homelab-operator.agent.md) | [container-image-updates](../.agents/skills/container-image-updates/SKILL.md) |
+| [Change a homelab service](prompts/change-homelab-service.prompt.md) | [Homelab Operator](agents/homelab-operator.agent.md) | [homelab-service-change](../.agents/skills/homelab-service-change/SKILL.md) |
 
 See [tool compatibility](../docs/tool-compatibility.md) for explicit-path usage. Selecting a prompt does not authorize deployment or production changes.

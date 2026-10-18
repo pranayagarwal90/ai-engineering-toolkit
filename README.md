@@ -2,7 +2,7 @@
 
 Reusable agents, skills and prompts for AI-assisted development, maintenance and troubleshooting.
 
-The toolkit includes Drupal workflows and language-independent SonarQube analysis. Future collections can cover homelab operations, DevOps, Python and other engineering use cases.
+The toolkit includes Drupal workflows, language-independent SonarQube analysis, container image deployment and homelab operations. Future collections can cover DevOps, Python and other engineering use cases.
 
 Created by Pranay Agarwal from workflows developed for a personal Drupal homelab/portfolio project. This public edition removes application-specific details and adds review and module-development procedures.
 
@@ -19,7 +19,7 @@ The [workflow map](.github/AI-WORKFLOWS.md) is the complete, validated list of s
 
 | Profile | Skills |
 | --- | --- |
-| Drupal Maintenance | Upgrade assessment, core update, contrib update |
+| Drupal Maintenance | Upgrade assessment, core update, contrib update, configuration drift |
 | Security Reviewer | Security advisory assessment/remediation |
 | Incident Debugger | Log analysis, outage investigation |
 | Drupal Code Reviewer | PR review |
@@ -30,6 +30,18 @@ The [workflow map](.github/AI-WORKFLOWS.md) is the complete, validated list of s
 Use the Code Quality Analyst profile with the [SonarQube analysis skill](.agents/skills/sonarqube-analysis/SKILL.md), [report analysis prompt](.github/prompts/analyze-sonarqube-report.prompt.md) or [selected-fixes prompt](.github/prompts/fix-sonarqube-findings.prompt.md). Start with supplied reports and relevant source; this toolkit does not install a scanner or connect to a server.
 
 See the [worked quality-gate example](examples/sonarqube-quality-gate.md) for separating a code defect, coverage evidence and hotspot review.
+
+## Collection: Deployment
+
+The Release Engineer profile with the [pinned image deployment skill](.agents/skills/pinned-image-deployment/SKILL.md) covers two tasks: a read-only check for a newer image, and deploying by digest with backups, migrations, configuration import and verification. It also explains deployments that "succeeded" without changing what runs. Example: [a deployment that reported success](examples/deploy-reported-success.md) (real use, sanitized).
+
+## Collection: Homelab operations
+
+| Profile | Skills |
+| --- | --- |
+| Homelab Operator | [Health triage](.agents/skills/homelab-health-triage/SKILL.md), [container image updates](.agents/skills/container-image-updates/SKILL.md), [service changes](.agents/skills/homelab-service-change/SKILL.md) |
+
+These assume a self-hosted Compose stack and record host specifics in [architecture/infrastructure.md](architecture/infrastructure.md). Example: [public URL down while private access worked](examples/public-url-one-relay-down.md) (real use, sanitized).
 
 ## Quick start
 
@@ -45,6 +57,8 @@ See the [worked quality-gate example](examples/sonarqube-quality-gate.md) for se
 [Upgrade assessment](examples/upgrade-assessment.md) and [code review](examples/code-review.md) are illustrative walkthroughs, not transcripts of measured production outcomes.
 
 For a concrete problem and reusable investigation prompt, see [Fixing an edit form that crashes on a missing answer ID](examples/missing-answer-id.md). This worked example includes synthetic evidence, a conditional fix and a verification plan.
+
+[A deployment's config import "changed" a setting nobody touched](examples/unexpected-config-import.md) is a sanitized real case: an update hook's key-order side effect, found by comparing stored, effective and exported configuration.
 
 Run python3 scripts/validate_toolkit.py to check metadata, that every skill, profile and prompt is routed from the workflow map, internal links and repository paths quoted in prose. python3 -m unittest discover -s tests tests the validator itself. CI runs both. This does not evaluate model accuracy or prove workflows succeed in a live application.
 

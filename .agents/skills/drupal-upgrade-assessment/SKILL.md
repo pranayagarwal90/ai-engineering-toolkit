@@ -7,13 +7,33 @@ description: Assess a proposed Drupal core or contrib upgrade before implementat
 
 Follow [root guidance](../../../AGENTS.md) and select relevant pages through the [architecture map](../../../architecture/README.md). Use [maintenance command evidence](../../../architecture/maintenance.md); do not load unrelated skills.
 
-This procedure is read-only for application code, dependencies, configuration, and database state. It must not change dependencies unless the user explicitly requests implementation; then complete the assessment and use the corresponding update skill. Do not interpret “assess,” “can we upgrade,” or selecting an agent as permission to update.
+**Scope:** read-only for application code, dependencies, configuration and database state. Do not interpret "assess", "can we upgrade" or selecting an agent as permission to update. If implementation is explicitly requested, finish this assessment and continue with the matching update skill.
 
-1. Establish the exact package(s), requested target, environment, and purpose. If “latest” is requested, resolve a supported target from current official releases and state the lookup date. If unresolved, give conditional findings and ask for the missing target; never invent a version.
-2. Compare root constraints in `composer.json`, locked versions in `composer.lock`, installed metadata if present, and deployed evidence if supplied. Label each separately. Inspect target metadata and official release notes, changelog, advisories, and Drupal change records; link sources and mark inaccessible sources unknown.
-3. Check target PHP/extensions, Drupal core, Composer/plugin, Drush, and dependent-package requirements against local and Docker/CI declarations. Use the scoped show/prohibits/why commands. Do not bypass platform checks or relax constraints as an assessment shortcut.
-4. Search only relevant custom modules/themes/config for package APIs, services, hooks, plugins, Twig inheritance, and deprecated/removed APIs. Inspect target update hooks/schema/config changes when available; distinguish observed hooks from anticipated effects.
-5. Identify regression surfaces and select existing checks from the development page. Include cache metadata, auth/access, editors, content imports, cron, external integrations, or front-end behavior only where affected.
-6. If useful and feasible, perform a package-scoped dry run with scripts/plugins disabled, recording the command, target and proposed transitive changes. Network/cache activity may occur; never run a real update, require, install, database update, or cache rebuild in assessment mode. Verify manifest/lock remain unchanged. If solving fails, preserve the blocker rather than widening scope automatically.
+## Inputs
 
-Return: **Current state**, **Target state**, **Compatibility findings**, **Risks**, **Proposed update procedure**, **Verification plan**, and **Unknowns**. The proposed procedure must identify exact packages/constraints, local database/config steps, backup/rollback needs, and any separately scoped production work. Reuse this result during implementation rather than repeating discovery.
+- Exact package(s), requested target, environment and purpose.
+- `composer.json`, `composer.lock`, installed metadata if present, and deployed-version evidence if supplied.
+
+## Steps
+
+1. **Pin down the target.**
+   - If "latest" is requested, resolve a supported target from current official releases and state the lookup date.
+   - If the target is unresolved, give conditional findings and ask for it. Never invent a version.
+2. **Compare versions and sources.**
+   - Label root constraints, locked, installed and deployed versions separately.
+   - Read target metadata, official release notes, changelog, advisories and Drupal change records. Link sources; mark inaccessible ones unknown.
+3. **Check platform requirements.**
+   - Compare target PHP/extensions, Drupal core, Composer/plugins, Drush and dependent-package requirements with local and Docker/CI declarations.
+   - Use scoped `composer show`/`prohibits`/`why`. Do not bypass platform checks or relax constraints as a shortcut.
+4. **Find custom-code impact.**
+   - Search only relevant custom modules, themes and config for package APIs, services, hooks, plugins, Twig inheritance and deprecated/removed APIs.
+   - Inspect target update hooks, schema and config changes when available. Distinguish observed hooks from anticipated effects, and note hooks that change exported configuration (they need an export in the same change; see [config drift](../drupal-config-drift/SKILL.md)).
+5. **Choose regression checks** from the development page, covering cache metadata, auth/access, editors, content imports, cron, external integrations or front-end behavior only where affected.
+6. **Optionally dry-run the solver.**
+   - Package-scoped, with scripts/plugins disabled; record the command, target and proposed transitive changes. Network/cache activity may occur.
+   - Never run a real update, require, install, database update or cache rebuild here. Verify manifest and lock are unchanged.
+   - If solving fails, preserve the blocker rather than widening scope.
+
+## Output
+
+**Current state**, **Target state**, **Compatibility findings**, **Risks**, **Proposed update procedure**, **Verification plan** and **Unknowns**. The procedure names exact packages/constraints, local database/config steps, backup/rollback needs and any separately scoped production work. Reuse this result during implementation instead of repeating discovery.
