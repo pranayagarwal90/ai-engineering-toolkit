@@ -5,22 +5,38 @@ description: Diagnose site unavailability across relevant request, infrastructur
 
 # Investigate site availability
 
-Follow [root guidance](../../../AGENTS.md), the [architecture map](../../../architecture/README.md), and [operations](../../../architecture/operations.md). Establish environment, incident window/timezone, affected URL, reach (one feature versus whole site), observed status/timeout and recent changes. Treat a request to investigate as read-only.
+Follow [root guidance](../../../AGENTS.md), the [architecture map](../../../architecture/README.md) and [operations](../../../architecture/operations.md).
 
-Use symptoms to choose the next boundary; do not run every row as a checklist:
+**Scope:** a request to investigate is read-only. Do not restart services, flush Redis/cache, change DNS, deploy, import config, restore databases or disable security as automatic diagnosis.
 
-| Evidence | Next useful boundary |
-| --- | --- |
-| Name resolution/TLS failure before any HTTP response | Client/DNS/CDN/proxy evidence supplied by the operator; topology is not established by this repo. |
-| Public URL fails but a verified origin succeeds | Proxy/CDN/routing/TLS evidence; this does not by itself identify the defective component. |
-| Gateway error, unhealthy/missing container, origin timeout | Web server/PHP/container state and bounded logs; verify the actual service name from the runbook/environment. |
-| Drupal/PHP exception or one failing route | Use [drupal-log-analysis](../drupal-log-analysis/SKILL.md) to correlate logs, stack frames, code and changes. |
-| Bootstrap or connection failure | Relevant settings mount, database or Redis reachability/state indicated by the error; no repeated dblog requests when bootstrap cannot complete. |
-| Read-only filesystem, write failure, capacity error | Affected path/mount, permissions or storage capacity evidence, without dumping files or recursively changing permissions. |
-| Only one external integration fails | The specific external integration and its failure/fallback behavior, using the integrations map. |
+## Inputs
 
-Collect bounded evidence with commands verified in operations or the current tool's help. Commands for DNS/proxies/external hosts not established here must be verified before use; mark absent access unknown. Preserve current symptoms/logs before considering changes. Compare public versus origin behavior only with a confirmed origin/host and permitted read-only checks; do not bypass access controls or expose private endpoints.
+- Environment, incident window and timezone, affected URL, reach (one feature or the whole site), observed status or timeout, recent changes.
 
-Classify findings as **verified failure**, **suspected failure**, or **unavailable evidence**. Maintain a short timeline and distinguish the first supported failure from cascading symptoms. Stop expanding when the next test needs unavailable infrastructure access; identify that specific gap rather than speculatively scanning other layers.
+## Steps
 
-Do not restart services, flush Redis/cache, change DNS, deploy, import config, restore databases, or disable security as automatic diagnosis. If remediation is explicitly requested, propose the evidence-backed minimal action, rollback impact and environment-specific verification, then proceed only within that authorization. Reuse the log-analysis incident report when applicable and add affected layer, blast radius, next discriminating check, and recovery criteria. A single successful homepage response is not proof that all affected functions recovered.
+1. **Choose the next boundary from the symptom.** Do not run every row as a checklist:
+
+   | Evidence | Next useful boundary |
+   | --- | --- |
+   | Name resolution/TLS failure before any HTTP response | Client/DNS/CDN/proxy evidence supplied by the operator; topology is not established by this repo. |
+   | Public URL fails but a verified origin succeeds | Proxy/CDN/tunnel/routing/TLS evidence. Test each edge or relay separately when there are several; one healthy path can hide a broken one. |
+   | Gateway error, unhealthy/missing container, origin timeout | Web server/PHP/container state and bounded logs; verify the actual service name from the runbook/environment. |
+   | Drupal/PHP exception or one failing route | [drupal-log-analysis](../drupal-log-analysis/SKILL.md) to correlate logs, stack frames, code and changes. |
+   | Bootstrap or connection failure | The settings mount, database or Redis reachability/state the error points to; no repeated dblog requests when bootstrap cannot complete. |
+   | Read-only filesystem, write failure, capacity error | The affected path/mount, permissions or storage capacity, without dumping files or recursively changing permissions. |
+   | Only one external integration fails | That integration and its failure/fallback behavior, using the integrations map. |
+   | Site works but shows old behavior after a release | The running revision versus the intended one, before debugging code. |
+
+2. **Collect bounded evidence.**
+   - Use commands verified in operations or the tool's own help. Verify commands for DNS, proxies and external hosts before use; mark missing access unknown.
+   - Preserve current symptoms and logs before considering changes.
+   - Compare public and origin behavior only with a confirmed origin and permitted read-only checks. Do not bypass access controls or expose private endpoints.
+3. **Classify and stop at the evidence gap.**
+   - Mark findings **verified failure**, **suspected failure** or **unavailable evidence**; keep a short timeline separating the first supported failure from cascading symptoms.
+   - Stop expanding when the next test needs access you do not have; name that gap instead of scanning other layers speculatively.
+4. **Remediate only when asked.** Propose the evidence-backed minimal action, rollback impact and environment-specific verification, then act only within that authorization.
+
+## Output
+
+Reuse the log-analysis incident report where it applies, and add the affected layer, blast radius, next discriminating check and recovery criteria. A single successful homepage response does not prove every affected function recovered.

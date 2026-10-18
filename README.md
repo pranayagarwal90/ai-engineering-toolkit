@@ -19,7 +19,7 @@ The [workflow map](.github/AI-WORKFLOWS.md) is the complete, validated list of s
 
 | Profile | Skills |
 | --- | --- |
-| Drupal Maintenance | Upgrade assessment, core update, contrib update |
+| Drupal Maintenance | Upgrade assessment, core update, contrib update, configuration drift |
 | Security Reviewer | Security advisory assessment/remediation |
 | Incident Debugger | Log analysis, outage investigation |
 | Drupal Code Reviewer | PR review |
@@ -45,6 +45,8 @@ See the [worked quality-gate example](examples/sonarqube-quality-gate.md) for se
 [Upgrade assessment](examples/upgrade-assessment.md) and [code review](examples/code-review.md) are illustrative walkthroughs, not transcripts of measured production outcomes.
 
 For a concrete problem and reusable investigation prompt, see [Fixing an edit form that crashes on a missing answer ID](examples/missing-answer-id.md). This worked example includes synthetic evidence, a conditional fix and a verification plan.
+
+[A deployment's config import "changed" a setting nobody touched](examples/unexpected-config-import.md) is a sanitized real case: an update hook's key-order side effect, found by comparing stored, effective and exported configuration.
 
 Run python3 scripts/validate_toolkit.py to check metadata, that every skill, profile and prompt is routed from the workflow map, internal links and repository paths quoted in prose. python3 -m unittest discover -s tests tests the validator itself. CI runs both. This does not evaluate model accuracy or prove workflows succeed in a live application.
 
