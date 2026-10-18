@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+Nothing yet.
+
+## 0.4.0 — 2026-10-18
+
 - **Self-contained skills.** The rules every skill follows moved from the repository's `AGENTS.md` into `.agents/RULES.md`, and the project templates moved from `architecture/` to `.agents/project/`. Skills link only inside `.agents/` or to full URLs, so copying them into another project no longer breaks references. The validator enforces this.
 - **Installer:** `scripts/install.py` copies selected collections for Claude Code (`.claude/`), Copilot (`.agents/` plus `.github/agents` and `.github/prompts`) or Codex. It adds linked skills, keeps existing files unless `--force`, never overwrites filled-in project pages, and supports `--dry-run` and `--list`. Its tests check that every link resolves after installing, for every client and collection.
 - **Root `AGENTS.md`** now covers only working on this repository. Drupal coding conventions moved into the development project page.
