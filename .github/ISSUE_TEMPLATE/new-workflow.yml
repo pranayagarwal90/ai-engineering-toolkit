@@ -1,0 +1,32 @@
+name: New workflow
+description: Propose a skill, profile or prompt backed by a concrete use case.
+labels: [new-workflow]
+body:
+  - type: markdown
+    attributes:
+      value: New workflows are added when a real use case supports them. Use sanitized details only.
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Concrete use case
+      description: What happened, what an assistant needed to know, and what went wrong without guidance.
+    validations:
+      required: true
+  - type: textarea
+    id: procedure
+    attributes:
+      label: Proposed procedure
+      description: Inputs, main steps, evidence required and the expected output.
+    validations:
+      required: true
+  - type: textarea
+    id: boundaries
+    attributes:
+      label: Safety boundaries
+      description: What the workflow must not do without explicit scope (deploys, restarts, data changes ...).
+    validations:
+      required: true
+  - type: textarea
+    id: overlap
+    attributes:
+      label: Overlap with existing workflows
