@@ -27,7 +27,7 @@ The repository's documented contract allows find() to return null when no accoun
 
 ## Copyable analysis prompt
 
-> Read AGENTS.md and .agents/skills/sonarqube-analysis/SKILL.md.
+> Read .agents/RULES.md and .agents/skills/sonarqube-analysis/SKILL.md.
 > Analyze this PHP report and the matching source revision. Explain each
 > failing gate condition separately. Trace the possible null dereference,
 > check whether coverage data imported correctly, and identify evidence

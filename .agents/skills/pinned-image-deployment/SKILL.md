@@ -5,7 +5,7 @@ description: Check for and deploy a newer container image of an application by d
 
 # Deploy a pinned container image
 
-Follow [root guidance](../../../AGENTS.md) and the project's [infrastructure](../../../architecture/infrastructure.md) and [operations](../../../architecture/operations.md) pages for hosts, Compose files and service names.
+Follow [shared rules](../../RULES.md) and the project's [infrastructure](../../project/infrastructure.md) and [operations](../../project/operations.md) pages for hosts, Compose files and service names.
 
 **Scope:** "is there a newer image?" is read-only. A deployment changes production: run it only when explicitly asked, and prefer the project's existing deployment script over ad-hoc commands. Never read or print environment files that hold secrets; change the image pin only through a tool that edits that one line.
 
@@ -48,4 +48,4 @@ Compare the running revision with the intended one before debugging application 
 - The image was rebuilt from a local `build:` section instead of pulled.
 - The script verified the configuration it read, not the container that is running.
 
-See the [deployment that reported success](../../../examples/deploy-reported-success.md) for a real case.
+See the [deployment that reported success](https://github.com/pranayagarwal90/ai-engineering-toolkit/blob/main/examples/deploy-reported-success.md) for a real case.

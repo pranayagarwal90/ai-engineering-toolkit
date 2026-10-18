@@ -128,6 +128,12 @@ class ValidatorTests(unittest.TestCase):
         self.write("README.md", "[a](https://example.com/x) [b](#top) [c](mailto:x@example.com)\n")
         self.assertEqual(self.errors(), [])
 
+    def test_skills_may_not_link_outside_agents_folder(self):
+        self.write("AGENTS.md", "# root\n")
+        self.write(".agents/skills/demo/SKILL.md", SKILL.format(name="demo") + "[root](../../../AGENTS.md)\n")
+        self.assertIn("Links outside .agents/ break after install (use a full URL): "
+                      ".agents/skills/demo/SKILL.md -> ../../../AGENTS.md", self.errors())
+
     def test_links_may_not_escape_the_repository(self):
         self.write("README.md", "[up](../../outside.md)\n")
         self.assertIn("Broken link: README.md -> ../../outside.md", self.errors())

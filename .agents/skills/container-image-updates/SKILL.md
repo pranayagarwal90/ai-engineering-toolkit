@@ -5,7 +5,7 @@ description: Find and safely apply container image updates for a self-hosted Com
 
 # Update container images
 
-Follow [root guidance](../../../AGENTS.md) and the project's [infrastructure](../../../architecture/infrastructure.md) page.
+Follow [shared rules](../../RULES.md) and the project's [infrastructure](../../project/infrastructure.md) page.
 
 **Scope:** finding updates is read-only. Recreating always-on services needs approval; an explicit "update everything" counts. Major versions of databases and apps with migrations are planned migrations, not routine updates. Never delete volumes or prune images as part of an update.
 

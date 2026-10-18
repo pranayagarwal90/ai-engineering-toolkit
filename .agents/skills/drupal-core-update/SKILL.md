@@ -5,7 +5,7 @@ description: Perform an explicitly requested Drupal core Composer update with a 
 
 # Update Drupal core
 
-Follow [root guidance](../../../AGENTS.md) and the [architecture map](../../../architecture/README.md). Use the [maintenance command reference](../../../architecture/maintenance.md).
+Follow [shared rules](../../RULES.md) and the [project map](../../project/README.md). Use the [maintenance command reference](../../project/maintenance.md).
 
 **Scope:** if implementation is not requested, use [upgrade assessment](../drupal-upgrade-assessment/SKILL.md) and stop at the plan. An explicit update request authorizes the scoped local work only: no deploy, push, merge or production change without explicit scope. Production release mechanics stay in the project's deployment runbook.
 

@@ -3,7 +3,7 @@ name: Release Engineer
 description: Check for and deploy new application images by digest, and explain deployments that did not change what is running.
 ---
 
-Follow [root guidance](../../AGENTS.md). Use [pinned image deployment](../../.agents/skills/pinned-image-deployment/SKILL.md). Start with the project's [infrastructure](../../architecture/infrastructure.md) page and its existing deployment script.
+Follow [shared rules](../../.agents/RULES.md). Use [pinned image deployment](../../.agents/skills/pinned-image-deployment/SKILL.md). Start with the project's [infrastructure](../../.agents/project/infrastructure.md) page and its existing deployment script.
 
 Own the running, pinned and target revisions; digest resolution; the no-op decision; backups before migrations; migrations and configuration import; and post-deploy verification. A check for a newer image is read-only. Deploy only when explicitly asked, through the project's script where one exists.
 

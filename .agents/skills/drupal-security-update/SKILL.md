@@ -5,7 +5,7 @@ description: Determine Drupal advisory applicability and the smallest supported 
 
 # Assess and remediate a security advisory
 
-Follow [root guidance](../../../AGENTS.md), the [architecture map](../../../architecture/README.md) and the relevant security/maintenance pages.
+Follow [shared rules](../../RULES.md), the [project map](../../project/README.md) and the relevant security/maintenance pages.
 
 **Scope:** keep advisory assessment separate from implementation. Do not disable security controls, suppress audit findings or widen constraints to produce a passing result. Do not claim a production issue is fixed until deployment and production verification are separately evidenced.
 
@@ -31,7 +31,7 @@ Follow [root guidance](../../../AGENTS.md), the [architecture map](../../../arch
    - Carry the assessment into [core update](../drupal-core-update/SKILL.md) or [contrib update](../drupal-contrib-update/SKILL.md). These are procedures, not automatic agent handoffs.
    - For other transitive packages, keep the same bounded principles and explain why the owning dependency must change.
 6. **Verify.**
-   - The exact CI audit in [maintenance](../../../architecture/maintenance.md), the shared quality gate, relevant security regressions and local behavior checks.
+   - The exact CI audit in [maintenance](../../project/maintenance.md), the shared quality gate, relevant security regressions and local behavior checks.
    - Compare remaining findings with the original advisory; distinguish an audit network failure from a clean result.
 
 ## Output

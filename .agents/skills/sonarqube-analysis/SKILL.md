@@ -5,7 +5,7 @@ description: Analyze supplied SonarQube reports, issues, security hotspots and q
 
 # Analyze SonarQube findings
 
-Follow [root guidance](../../../AGENTS.md). Use the target project's relevant architecture, build and test evidence.
+Follow [shared rules](../../RULES.md). Use the target project's relevant architecture, build and test evidence.
 
 **Scope:** works on supplied reports; it does not install a scanner, connect to a server or need an API token. Never use NOSONAR, exclusions, lower thresholds, reduced rule profiles or speculative rewrites to obtain a pass. Server status changes require explicit scope.
 

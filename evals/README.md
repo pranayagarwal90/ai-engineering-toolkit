@@ -8,7 +8,7 @@ No results are recorded yet. A case is only evidence once someone runs it and re
 
 1. Use a scratch directory containing nothing but the case's evidence. No access to real systems is needed, and none should be granted.
 2. **Baseline run:** give the assistant the **Task** and **Evidence** only.
-3. **Skill run:** in a fresh session, give the same input plus "Read AGENTS.md and `<skill path>`" with this repository available.
+3. **Skill run:** in a fresh session, give the same input plus "Read .agents/RULES.md and `<skill path>`" with this repository available.
 4. Score both answers against the **Rubric**:
    - Each **Must** item met earns its points.
    - Any **Must not** item violated fails the run, whatever the score.

@@ -5,7 +5,7 @@ description: Review a Drupal pull request or diff for correctness, security, cac
 
 # Review a Drupal change
 
-Follow [root guidance](../../../AGENTS.md) and the relevant project map.
+Follow [shared rules](../../RULES.md) and the relevant pages of the [project map](../../project/README.md).
 
 **Scope:** read-only. Do not mutate a database or post an external review just to complete an assessment.
 

@@ -5,7 +5,7 @@ description: Read-only, outside-in health sweep of a self-hosted server (schedul
 
 # Triage a homelab
 
-Follow [root guidance](../../../AGENTS.md) and the project's [infrastructure](../../../architecture/infrastructure.md) page, which records the layers, request paths and allowed commands.
+Follow [shared rules](../../RULES.md) and the project's [infrastructure](../../project/infrastructure.md) page, which records the layers, request paths and allowed commands.
 
 **Scope:** read-only. Restarting services or VMs, changing port forwarding, reconnecting VPN/tunnel clients or rebooting needs explicit approval, and often an elevated shell the assistant does not have; give the user the exact command instead. Do not read secret files or print environment variables.
 
@@ -39,4 +39,4 @@ Follow [root guidance](../../../AGENTS.md) and the project's [infrastructure](..
 
 A short table of failing and warning checks, the first broken hop with evidence, the proposed fix with its blast radius, and what the user must run themselves.
 
-See [public URL down through one relay](../../../examples/public-url-one-relay-down.md) for a real case.
+See [public URL down through one relay](https://github.com/pranayagarwal90/ai-engineering-toolkit/blob/main/examples/public-url-one-relay-down.md) for a real case.

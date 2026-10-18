@@ -14,4 +14,5 @@ Open an issue using the workflow-problem or new-workflow template: describe the 
 - Frontmatter: `name` (lowercase-hyphenated, equal to the folder name) and a `description` that says when to use it.
 - Structure: a short scope paragraph, then **Inputs**, **Steps** (one action per step, details as sub-bullets) and **Output**. Keep it skimmable; avoid single-paragraph steps.
 - State evidence requirements and what the skill must not do without explicit scope.
+- Link only to `../../RULES.md`, `../../project/*.md`, other skills (`../<name>/SKILL.md`) or full URLs, so the skill still works after installation. Add the skill to a collection in `scripts/install.py`.
 - Add an illustrative or real-use example, labelled accurately, and preferably an [evaluation case](evals/README.md#adding-a-case) whose Must-not items cover the unsafe shortcut. Avoid automatic deployments, unsupported success claims and duplicate procedures.

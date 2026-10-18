@@ -1,6 +1,6 @@
 # Workflow map
 
-Select one row. Read root guidance, relevant architecture and the selected skill; inspect source before acting. No automatic handoffs or scheduled actions are configured.
+Select one row. Read the [shared rules](../.agents/RULES.md), the relevant [project pages](../.agents/project/README.md) and the selected skill; inspect source before acting. No automatic handoffs or scheduled actions are configured.
 
 | Task | Profile | Skill |
 | --- | --- | --- |
@@ -13,7 +13,7 @@ Select one row. Read root guidance, relevant architecture and the selected skill
 | [Investigate application error](prompts/investigate-application-error.prompt.md) | [incident-debugger](agents/incident-debugger.agent.md) | [drupal-log-analysis](../.agents/skills/drupal-log-analysis/SKILL.md) |
 | [Investigate site outage](prompts/investigate-site-outage.prompt.md) | [incident-debugger](agents/incident-debugger.agent.md) | [site-outage-investigation](../.agents/skills/site-outage-investigation/SKILL.md) |
 | [Review Drupal PR](prompts/review-drupal-pr.prompt.md) | [drupal-code-reviewer](agents/drupal-code-reviewer.agent.md) | [drupal-pr-review](../.agents/skills/drupal-pr-review/SKILL.md) |
-| [Develop Drupal module](prompts/develop-drupal-module.prompt.md) | Shared development guidance | [drupal-custom-module-development](../.agents/skills/drupal-custom-module-development/SKILL.md) |
+| [Develop Drupal module](prompts/develop-drupal-module.prompt.md) | (none; shared rules) | [drupal-custom-module-development](../.agents/skills/drupal-custom-module-development/SKILL.md) |
 | [Analyze SonarQube report](prompts/analyze-sonarqube-report.prompt.md) | [Code Quality Analyst](agents/code-quality-analyst.agent.md) | [SonarQube analysis](../.agents/skills/sonarqube-analysis/SKILL.md) |
 | [Fix selected SonarQube findings](prompts/fix-sonarqube-findings.prompt.md) | [Code Quality Analyst](agents/code-quality-analyst.agent.md) | [SonarQube analysis](../.agents/skills/sonarqube-analysis/SKILL.md) |
 | [Check for a newer image](prompts/check-for-newer-image.prompt.md) | [Release Engineer](agents/release-engineer.agent.md) | [pinned-image-deployment](../.agents/skills/pinned-image-deployment/SKILL.md) |
