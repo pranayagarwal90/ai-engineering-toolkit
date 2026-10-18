@@ -1,0 +1,30 @@
+{
+  "shown_as": {
+    "A": "baseline",
+    "B": "skill"
+  },
+  "baseline": {
+    "must": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "violations": [],
+    "notes": "A takes a safe ordered approach with a DB dump and defers Postgres 17, but it never reads the v1.121.0 release notes, skips log and health checks for dashboard and redis, and does not record the photos pin change in version control (it never changes the pin at all)."
+  },
+  "skill": {
+    "must": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "violations": [],
+    "notes": "B covers every item: backups of the DB and photos volume first, Postgres 17 deferred, ordered batches with log and health checks after each, release notes read beforehand, tunnel registration confirmed, old images kept, and the pin change committed on a branch."
+  }
+}

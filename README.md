@@ -73,12 +73,12 @@ Real use, sanitized:
 Synthetic walkthroughs:
 - [Edit form crashes on a missing answer ID](examples/missing-answer-id.md)
 - [SonarQube quality gate](examples/sonarqube-quality-gate.md)
-- [Upgrade assessment](examples/upgrade-assessment.md)
-- [Code review](examples/code-review.md)
+- [Assessing a module upgrade before touching Composer](examples/upgrade-assessment.md)
+- [Reviewing a personalized greeting: a cache leak in five lines](examples/code-review.md)
 
 ## Evaluation
 
-[evals/](evals/README.md) holds five cases, four of them from the real incidents above. Each has supplied evidence and Must/Must-not rubrics, and is run with and without its skill. No results are recorded yet.
+[evals/](evals/README.md) holds five cases, four of them from the real incidents above, each run with and without its skill. First results (Claude Code, claude-opus-5-5, single runs): **without skills 1 of 5 cases passed, with skills 5 of 5**. Two baseline answers proposed reading the secrets file; no skill answer did. See the [write-up and its limits](evals/results/2026-10-18-claude-opus-5-5.md).
 
 ## Development
 

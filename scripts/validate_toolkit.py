@@ -45,8 +45,12 @@ def collections(root):
     }
 
 
+RAW_OUTPUT = ("evals", "results", "runs")  # recorded assistant answers: quoted output, not toolkit docs
+
+
 def markdown_files(root):
-    return sorted(p for p in root.rglob("*.md") if ".git" not in p.relative_to(root).parts)
+    return sorted(p for p in root.rglob("*.md")
+                  if ".git" not in p.relative_to(root).parts and p.relative_to(root).parts[:3] != RAW_OUTPUT)
 
 
 def check_metadata(root, found):
