@@ -4,7 +4,7 @@ Released: 0.1.0 (Drupal collection: four profiles, eight skills, nine prompts an
 
 0.3.0: Deployment and Homelab operations collections, the config-drift workflow, the first three sanitized real-use walkthroughs and five behavior evaluation cases.
 
-0.4.0: self-contained skills with an installer, a README for new users, the first evaluation results and fuller examples.
+0.4.0: self-contained skills with an installer and a README for new users. 0.5.0: the first evaluation results, the evaluation runner and fuller examples.
 
 Next: repeat the evaluation runs (several per case, other models and clients, an independent grader); add cases for the remaining skills; more real-use walkthroughs; consider accessibility review and backup/restore verification after concrete use cases emerge. Contributions should improve evidence quality and usefulness rather than duplicate roles.
 
