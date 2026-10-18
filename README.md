@@ -13,28 +13,28 @@ Created by Pranay Agarwal from workflows developed for a personal Drupal homelab
 - Distinguishing assessment from implementation and local checks from deployment evidence.
 - Planning Drupal access, cacheability, configuration lifecycle and regression verification.
 
-## Initial collection: Drupal
+## Collection: Drupal
 
-Five specialist profiles, nine skills and eleven prompts across the toolkit. Browse the [workflow map](.github/AI-WORKFLOWS.md).
+The [workflow map](.github/AI-WORKFLOWS.md) is the complete, validated list of skills, profiles and prompts.
 
-| Profiles | Skills |
+| Profile | Skills |
 | --- | --- |
 | Drupal Maintenance | Upgrade assessment, core update, contrib update |
 | Security Reviewer | Security advisory assessment/remediation |
 | Incident Debugger | Log analysis, outage investigation |
 | Drupal Code Reviewer | PR review |
-| Shared development guidance | Custom module development |
+| (none; root guidance) | Custom module development |
 
-## Code quality: SonarQube
+## Collection: Code quality (SonarQube)
 
-Use the Code Quality Analyst with the [SonarQube analysis skill](.agents/skills/sonarqube-analysis/SKILL.md), [report analysis prompt](.github/prompts/analyze-sonarqube-report.prompt.md) or [selected-fixes prompt](.github/prompts/fix-sonarqube-findings.prompt.md). Start with supplied reports and relevant source; this toolkit does not install a scanner or connect to a server.
+Use the Code Quality Analyst profile with the [SonarQube analysis skill](.agents/skills/sonarqube-analysis/SKILL.md), [report analysis prompt](.github/prompts/analyze-sonarqube-report.prompt.md) or [selected-fixes prompt](.github/prompts/fix-sonarqube-findings.prompt.md). Start with supplied reports and relevant source; this toolkit does not install a scanner or connect to a server.
 
 See the [worked quality-gate example](examples/sonarqube-quality-gate.md) for separating a code defect, coverage evidence and hotspot review.
 
 ## Quick start
 
 1. Review these instructions before copying them into a project. Merge existing AGENTS.md and CLAUDE.md guidance rather than overwriting it.
-2. Copy the relevant .agents/skills/, .github/agents/ and .github/prompts/ files. Adapt the architecture references using [customization](docs/customization.md).
+2. Copy the relevant .agents/skills/, .github/agents/ and .github/prompts/ files. Adapt the architecture references using [customization](docs/customization.md). For automatic skill discovery in Claude Code, also place the skills under .claude/skills/ ([tool compatibility](docs/tool-compatibility.md#claude-code-skill-discovery)).
 3. In your coding assistant, ask: “Read AGENTS.md and .agents/skills/drupal-upgrade-assessment/SKILL.md. Assess the supplied package and target; do not apply updates.”
 4. Supply the actual package/target and project evidence. Review the result and recorded checks.
 
@@ -46,7 +46,7 @@ See the [worked quality-gate example](examples/sonarqube-quality-gate.md) for se
 
 For a concrete problem and reusable investigation prompt, see [Fixing an edit form that crashes on a missing answer ID](examples/missing-answer-id.md). This worked example includes synthetic evidence, a conditional fix and a verification plan.
 
-Run python3 scripts/validate_toolkit.py to check metadata, internal links and expected file counts. CI runs the same structural check. This does not evaluate model accuracy or prove workflows succeed in a live Drupal application.
+Run python3 scripts/validate_toolkit.py to check metadata, that every skill, profile and prompt is routed from the workflow map, internal links and repository paths quoted in prose. python3 -m unittest discover -s tests tests the validator itself. CI runs both. This does not evaluate model accuracy or prove workflows succeed in a live application.
 
 ## Contribute
 
