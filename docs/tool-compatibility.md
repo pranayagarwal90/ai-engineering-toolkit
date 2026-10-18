@@ -4,9 +4,22 @@ The portable baseline is explicit file reading: ask your assistant to read AGENT
 
 | Client | Entry point |
 | --- | --- |
-| Claude Code | CLAUDE.md imports AGENTS.md; explicitly request the skill by path when discovery is unavailable |
+| Claude Code | CLAUDE.md imports AGENTS.md; request the skill by path, or install it for discovery (below) |
 | Codex | Use repository guidance and explicitly provide the skill path; verify discovery in your installed client |
 | GitHub Copilot / VS Code | Profiles and prompt files are supplied; verify availability and supported frontmatter in your installed version; fall back to explicit paths |
+
+## Claude Code skill discovery
+
+Claude Code discovers project skills in `.claude/skills/<name>/SKILL.md` (or personal skills in `~/.claude/skills/`) and selects them by their `description`. This toolkit keeps skills in the client-neutral `.agents/skills/`, so either name the skill path in your request or copy the skills you adopted into the discovered location in your project:
+
+```bash
+mkdir -p .claude/skills
+cp -R .agents/skills/drupal-upgrade-assessment .claude/skills/
+```
+
+A directory symlink (`ln -s ../.agents/skills .claude/skills`) avoids two copies on Linux and macOS, but Git on Windows checks symlinks out as plain files unless symlink support is enabled. Skill-relative links such as `../../../AGENTS.md` assume the skill sits two folders below the project root, which both locations satisfy.
+
+## Notes
 
 Automatic discovery varies by client version, workspace and session mode. Profiles inherit available tools; they do not install runtimes or schedule work. There are no automatic agent handoffs.
 
