@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+Nothing yet.
+
+## 0.3.0 — 2026-10-18
+
+- Behavior evaluation cases (`evals/`): five fixed tasks with evidence and Must/Must-not rubrics, four of them from real incidents, a baseline-versus-skill method and a results template. The validator checks each case's structure. No results are recorded yet.
 - Validator no longer hard-codes file counts. It checks that every skill, profile and prompt is routed from the workflow map, that profile names are unique, and that repository paths quoted in prose exist. It also accepts CRLF frontmatter, and CI now runs its unit tests.
 - Restructured every skill into Inputs, Steps (with sub-bullets) and Output, keeping its rules.
 - Drupal update and module-development skills: an update hook that changes exported configuration must ship with the matching export, and `config:status` must be clean; environment-specific values belong in `settings.php` overrides.

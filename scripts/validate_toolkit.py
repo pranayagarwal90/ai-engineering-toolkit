@@ -5,6 +5,8 @@ Checks:
 - profile names are unique
 - every skill, profile and prompt is reachable from .github/AI-WORKFLOWS.md
 - Markdown links and repository paths written in prose (.agents/..., .github/...) exist
+- evaluation cases (evals/cases/*.md) name an existing skill, have Task, Evidence and Rubric
+  sections with Must and Must-not items, and a pass mark no higher than the Must items
 """
 from pathlib import Path
 import re
@@ -97,11 +99,36 @@ def check_paths(root):
     return errors
 
 
+def check_evals(root):
+    errors = []
+    for path in sorted(root.glob("evals/cases/*.md")):
+        rel = path.relative_to(root).as_posix()
+        text = read(path)
+        fields = frontmatter(text) or {}
+        if fields.get("id") != path.stem:
+            errors.append(f"Eval id must equal the file name: {rel}")
+        skill = fields.get("skill", "")
+        if not re.fullmatch(r"\.agents/skills/[a-z0-9-]+/SKILL\.md", skill) or not (root / skill).exists():
+            errors.append(f"Eval must name an existing skill (.agents/skills/<name>/SKILL.md): {rel}")
+        for heading in ("## Task", "## Evidence", "## Rubric"):
+            if not re.search(rf"^{heading}\s*$", text, re.M):
+                errors.append(f"Eval is missing '{heading}': {rel}")
+        must, _, must_not = text.partition("**Must not:**")
+        must_items = len(re.findall(r"^\d+\. ", must.split("## Rubric", 1)[-1], re.M))
+        if not must_items or not re.search(r"^- ", must_not, re.M):
+            errors.append(f"Eval rubric needs numbered Must items and '**Must not:**' bullets: {rel}")
+        if not fields.get("pass", "").isdigit() or not 0 < int(fields["pass"]) <= must_items:
+            errors.append(f"Eval pass mark must be between 1 and its {must_items} Must items: {rel}")
+    return errors
+
+
 def validate(root=ROOT):
     root = Path(root)
     found = collections(root)
-    errors = check_metadata(root, found) + check_routing(root, found) + check_paths(root)
-    return errors, {label: len(paths) for label, paths in found.items()}
+    errors = check_metadata(root, found) + check_routing(root, found) + check_paths(root) + check_evals(root)
+    counts = {label: len(paths) for label, paths in found.items()}
+    counts["evals"] = len(list(root.glob("evals/cases/*.md")))
+    return errors, counts
 
 
 def main():
@@ -109,7 +136,8 @@ def main():
     if errors:
         print("\n".join(errors), file=sys.stderr)
         return 1
-    print("Validated {skills} skills, {profiles} profiles, {prompts} prompts, routing and local paths.".format(**counts))
+    print("Validated {skills} skills, {profiles} profiles, {prompts} prompts, {evals} evaluation cases, "
+          "routing and local paths.".format(**counts))
     return 0
 
 
