@@ -26,7 +26,7 @@ Follow [root guidance](../../../AGENTS.md), the [architecture map](../../../arch
    | Bootstrap or connection failure | The settings mount, database or Redis reachability/state the error points to; no repeated dblog requests when bootstrap cannot complete. |
    | Read-only filesystem, write failure, capacity error | The affected path/mount, permissions or storage capacity, without dumping files or recursively changing permissions. |
    | Only one external integration fails | That integration and its failure/fallback behavior, using the integrations map. |
-   | Site works but shows old behavior after a release | The running revision versus the intended one, before debugging code. |
+   | Site works but shows old behavior after a release | The running revision versus the intended one ([pinned image deployment](../pinned-image-deployment/SKILL.md)), before debugging code. |
 
 2. **Collect bounded evidence.**
    - Use commands verified in operations or the tool's own help. Verify commands for DNS, proxies and external hosts before use; mark missing access unknown.

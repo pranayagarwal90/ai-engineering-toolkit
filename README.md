@@ -2,7 +2,7 @@
 
 Reusable agents, skills and prompts for AI-assisted development, maintenance and troubleshooting.
 
-The toolkit includes Drupal workflows and language-independent SonarQube analysis. Future collections can cover homelab operations, DevOps, Python and other engineering use cases.
+The toolkit includes Drupal workflows, language-independent SonarQube analysis, container image deployment and homelab operations. Future collections can cover DevOps, Python and other engineering use cases.
 
 Created by Pranay Agarwal from workflows developed for a personal Drupal homelab/portfolio project. This public edition removes application-specific details and adds review and module-development procedures.
 
@@ -30,6 +30,18 @@ The [workflow map](.github/AI-WORKFLOWS.md) is the complete, validated list of s
 Use the Code Quality Analyst profile with the [SonarQube analysis skill](.agents/skills/sonarqube-analysis/SKILL.md), [report analysis prompt](.github/prompts/analyze-sonarqube-report.prompt.md) or [selected-fixes prompt](.github/prompts/fix-sonarqube-findings.prompt.md). Start with supplied reports and relevant source; this toolkit does not install a scanner or connect to a server.
 
 See the [worked quality-gate example](examples/sonarqube-quality-gate.md) for separating a code defect, coverage evidence and hotspot review.
+
+## Collection: Deployment
+
+The Release Engineer profile with the [pinned image deployment skill](.agents/skills/pinned-image-deployment/SKILL.md) covers two tasks: a read-only check for a newer image, and deploying by digest with backups, migrations, configuration import and verification. It also explains deployments that "succeeded" without changing what runs. Example: [a deployment that reported success](examples/deploy-reported-success.md) (real use, sanitized).
+
+## Collection: Homelab operations
+
+| Profile | Skills |
+| --- | --- |
+| Homelab Operator | [Health triage](.agents/skills/homelab-health-triage/SKILL.md), [container image updates](.agents/skills/container-image-updates/SKILL.md), [service changes](.agents/skills/homelab-service-change/SKILL.md) |
+
+These assume a self-hosted Compose stack and record host specifics in [architecture/infrastructure.md](architecture/infrastructure.md). Example: [public URL down while private access worked](examples/public-url-one-relay-down.md) (real use, sanitized).
 
 ## Quick start
 
